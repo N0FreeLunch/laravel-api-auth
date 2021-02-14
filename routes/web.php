@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,35 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// page
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+// session API
+Route::post('/test', function () {
+    return response() -> json([
+      "test" => true
+    ]);
+});
+
+Route::post('/login', function () {
+    return response() -> json([
+      "test" => true
+    ]);
+});
+
+Route::group(['middleware' => ['auth']], function () {
+  Route::post('/auth', function () {
+      return response() -> json([
+        "auth" => true
+      ]);
+  });
+});
+
+
+// default
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
