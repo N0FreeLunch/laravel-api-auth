@@ -43,3 +43,9 @@ php artisan ui react --auth
 ```
 npm install
 ```
+
+
+```
+node -v
+```
+> v15.11.0

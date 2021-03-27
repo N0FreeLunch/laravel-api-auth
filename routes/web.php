@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
 
 // page
 Route::get('/', function () {
-    return view('welcome');
+    return view('react.index');
 });
 
 
